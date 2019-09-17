@@ -47,7 +47,11 @@ function generateTitleLinks(){
   /* remove contents of titleList */
  const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
   /* for each article */
+const articles =  document.querySelectorAll('.post');
 
+for(let article of articles){
+    const articleId = article.getAttribute('id');
+}
     /* get the article id */
 
     /* find the title element */
