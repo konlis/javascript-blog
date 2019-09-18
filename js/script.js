@@ -13,8 +13,8 @@ function titleClickHandler(event){
   /* add class 'active' to the clicked link */
 
   const clickedElement = this;
-    console.log('clickedElement:', clickedElement);
-    clickedElement.classList.add('active');
+  console.log('clickedElement:', clickedElement);
+  clickedElement.classList.add('active');
 
   /* remove class 'active' from all articles */
 
@@ -27,17 +27,17 @@ function titleClickHandler(event){
 
   const articleSelector = clickedElement.getAttribute('href');
 
-    console.log('articleSelector and getAttribute:', articleSelector);
+  console.log('articleSelector and getAttribute:', articleSelector);
 
   /* find the correct article using the selector (value of 'href' attribute) */
 
   const targetArticle = document.querySelector(articleSelector);
-    console.log('targetArticle', targetArticle);
+  console.log('targetArticle', targetArticle);
 
   /* add class 'active' to the correct article */
 
-    targetArticle.classList.add('active');
-    console.log('targetArticle', targetArticle);
+  targetArticle.classList.add('active');
+  console.log('targetArticle', targetArticle);
 
     event.preventDefault();
 }
@@ -68,7 +68,7 @@ function generateTitleLinks(){
 
   let html = '';
 
-    for(let article of articles){
+  for(let article of articles){
 
     /* get the article id */
 
