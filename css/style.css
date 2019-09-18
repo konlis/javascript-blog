@@ -6,9 +6,13 @@
 }
 
 body {
-  background: #fff;
+  background: #fff9df;
+  background-image: url("https://i.postimg.cc/yYwbJKHJ/baking-bread-cuisine-1070880small.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: "Source Sans Pro", sans-serif;
-  color: #444;
+  color: #1a1a1a;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -29,7 +33,7 @@ body {
 .section-title span {
   text-transform: none;
   font-weight: 400;
-  color: #777777;
+  color: #4d4d4d;
 }
 
 /* Layout */
@@ -50,20 +54,23 @@ body {
 }
 
 .sidebar, .posts {
-  background: #fff;
+  background: rgba(255, 249, 223, 0.8);
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid #444;
-  border-radius: 5px;
+  border: 1px solid #1a1a1a;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px #000;
 }
 
 /* Logo */
 .logo {
   font-family: "Sacramento", cursive;
-  font-weight: 400;
-  font-size: 104px;
+  color: #00ffd1;
+  font-weight: 500;
+  font-size: 120px;
   line-height: 1;
   text-align: center;
+  text-shadow: 2px 2px 3px #fff9df, 4px 4px 8px #000;
 }
 
 /* Lists */

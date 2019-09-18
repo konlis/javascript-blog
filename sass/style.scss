@@ -2,8 +2,9 @@
 
 /* Variables */
 
-$color-light: #fff;
-$color-dark: #444;
+$color-light: rgb(255, 249, 223);
+$color-dark: #1a1a1a;
+$font-color: #00ffd1;
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -17,6 +18,10 @@ $font-text: 'Source Sans Pro', sans-serif;
 
 body {
   background: $color-light;
+  background-image: url('https://i.postimg.cc/yYwbJKHJ/baking-bread-cuisine-1070880small.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: $font-text;
   color: $color-dark;
   font-weight: 300;
@@ -57,21 +62,25 @@ body {
 }
 
 .sidebar, .posts {
-  background: $color-light;
+  background: rgba(255, 249, 223, 0.8);
   margin-right: 10px;
   padding: 40px;
   border: 1px solid $color-dark;
-  border-radius: 5px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px #000;
 }
 
 /* Logo */
 
 .logo {
   font-family: $font-logo;
-  font-weight: 400;
-  font-size: 104px;
+  color: $font-color;
+  font-weight: 500;
+  font-size: 120px;
   line-height: 1;
   text-align: center;
+  text-shadow: 2px 2px 3px #fff9df, 4px 4px 8px #000;
+
 }
 
 /* Lists */
