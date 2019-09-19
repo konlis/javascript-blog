@@ -51,7 +51,8 @@ for(let link of links){
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
+  optTitleListSelector = '.titles',
+  optArticleTagsSelector = '.post-tags .list';
 
 function generateTitleLinks(){
 
@@ -108,8 +109,14 @@ generateTitleLinks();
 function generateTags(){
   /* find all articles */
 
+  const articles =  document.querySelectorAll(optArticleSelector);
+  console.log('articles', articles);
+
   /* START LOOP: for every article: */
 
+  for(let article of articles){
+
+  }
     /* find tags wrapper */
 
     /* make html variable with empty string */
