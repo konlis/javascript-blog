@@ -116,12 +116,19 @@ function generateTags(){
 
   for(let article of articles){
 
-  }
     /* find tags wrapper */
+
+    const taglist = document.querySelectorAll(optArticleTagsSelector);
+    console.log('taglist', taglist);
 
     /* make html variable with empty string */
 
+    let html = '';
+
     /* get tags from data-tags attribute */
+
+    const tags = article.getAttribute('data-tags');
+    console.log('tags:', tags);
 
     /* split tags into array */
 
@@ -136,6 +143,7 @@ function generateTags(){
     /* insert HTML of all the links into the tags wrapper */
 
   /* END LOOP: for every article: */
+ }
 }
 
 generateTags();
