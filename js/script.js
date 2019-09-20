@@ -88,7 +88,7 @@ function generateTitleLinks(){
 
     /* insert link into titleList */
 
-      /* titleList.insertAdjacentHTML('beforeend', linkHTML);
+      /*titleList.insertAdjacentHTML('beforeend', linkHTML);
         console.log(titleList);*/
         html = html + linkHTML;
         console.log('html', html);
@@ -205,12 +205,19 @@ function tagClickHandler(event){
   /* find all tag links with "href" attribute equal to the "href" constant */
 
   const tagLinks = activeTags.querySelectorAll('a[href="' + href + '"]');
+  console.log('tagLinks', tagLinks);
 
   /* START LOOP: for each found tag link */
 
+  for(tagLink of tagLinks){
+
     /* add class active */
 
+    tagLink.classList('remove');
+    console.log('tagLink', tagLink);
   /* END LOOP: for each found tag link */
+
+}
 
   /* execute function "generateTitleLinks" with article selector as argument */
 
