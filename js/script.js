@@ -150,8 +150,12 @@ function generateTags(){
       html = html + linkHTML;
 
     /* END LOOP: for each tag */
+
   }
+
     /* insert HTML of all the links into the tags wrapper */
+
+
 
   /* END LOOP: for every article: */
  }
@@ -160,15 +164,31 @@ function generateTags(){
 generateTags();
 
 function tagClickHandler(event){
+  console.log('Link was clicked!');
+
   /* prevent default action for this event */
+
+  event.preventDefault();
 
   /* make new constant named "clickedElement" and give it the value of "this" */
 
+  const clickedElement = this;
+  console.log('this', this);
+
   /* make a new constant "href" and read the attribute "href" of the clicked element */
+
+  const href = clickedElement.getAttribute('href');
+  console.log('href', href);
 
   /* make a new constant "tag" and extract tag from the "href" constant */
 
+  const tag = href.replace('#tag-', '');
+  console.log('tag', tag);
+
   /* find all tag links with class active */
+
+  const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
+  console.log('activeTags', activeTags);
 
   /* START LOOP: for each active tag link */
 
@@ -185,6 +205,9 @@ function tagClickHandler(event){
   /* END LOOP: for each found tag link */
 
   /* execute function "generateTitleLinks" with article selector as argument */
+
+  generateTitleLinks('[data-tags~="' + tag + '"]');
+
 }
 
 function addClickListenersToTags(){
