@@ -55,7 +55,11 @@ function generateTitleLinks(customSelector = ' ') {
   /* remove contents of titleList */
 
   const titleList = document.querySelector(optTitleListSelector);
+<<<<<<< HEAD
   //console.log('titleList', titleList);
+=======
+  console.log('titleList', titleList);
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
   titleList.innerHTML = ' ';
 
   /* for each article */
@@ -114,7 +118,11 @@ function generateTags() {
     /* find tags wrapper */
 
     const taglist = article.querySelector(optArticleTagsSelector);
+<<<<<<< HEAD
     //console.log('taglist', taglist);
+=======
+    console.log('taglist', taglist);
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
 
     /* make html variable with empty string */
 
@@ -138,12 +146,20 @@ function generateTags() {
       /* generate HTML of the link */
 
       const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
+<<<<<<< HEAD
       //console.log('linkHTML', linkHTML);
+=======
+      console.log('linkHTML', linkHTML);
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
 
       /* add generated code to html variable */
 
       html = html + linkHTML;
+<<<<<<< HEAD
       //console.log('html', html);
+=======
+      console.log('html', html);
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
 
       /* END LOOP: for each tag */
 
@@ -174,7 +190,11 @@ function tagClickHandler(event) {
   /* make a new constant "href" and read the attribute "href" of the clicked element */
 
   const href = clickedElement.getAttribute('href');
+<<<<<<< HEAD
   console.log('clickedElement:', href);
+=======
+  console.log('clickedElement', href);
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
 
   /* make a new constant "tag" and extract tag from the "href" constant */
 
@@ -209,8 +229,13 @@ function tagClickHandler(event) {
 
     /* add class active */
 
+<<<<<<< HEAD
     tagLink.classList.add('active');
     console.log('tagLink:', tagLink);
+=======
+    tagLink.classList.remove('active');
+    console.log('tagLink', tagLink);
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
 
     /* END LOOP: for each found tag link */
 
@@ -225,6 +250,7 @@ function tagClickHandler(event) {
 function addClickListenersToTags() {
   /* find all links to tags */
 
+<<<<<<< HEAD
   const tagLinks = document.querySelectorAll(optArticleTagSelector , optArticleTagsSelector);
   console.log('tagLinks:' , tagLinks)
   /* START LOOP: for each link */
@@ -237,6 +263,20 @@ function addClickListenersToTags() {
 
     /* END LOOP: for each link */
   }
+=======
+    const tagLinks = document.querySelectorAll(optArticleTagsSelector);
+
+  /* START LOOP: for each link */
+
+    for(let tag of tagLinks){
+
+    /* add tagClickHandler as event listener for that link */
+
+      tag.addEventListener('click', tagClickHandler);
+
+  /* END LOOP: for each link */
+>>>>>>> 279e64e5430439b90ac50172b9e444db3517ed19
+}
 }
 
 addClickListenersToTags();
