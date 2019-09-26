@@ -49,7 +49,7 @@ const optArticleSelector = '.post',
   optTitleListSelector = '.titles',
   optArticleTagsSelector = '.post-tags .list',
   optArticleTagSelector = '.post-tags a',
-  optArticleAuthorSelector ='.post-author';
+  optArticleAuthorSelector = '.post-author';
 
 function generateTitleLinks(customSelector = ' ') {
 
@@ -226,8 +226,8 @@ function tagClickHandler(event) {
 function addClickListenersToTags() {
   /* find all links to tags */
 
-  const tagLinks = document.querySelectorAll(optArticleTagSelector , optArticleTagsSelector);
-  console.log('tagLinks:' , tagLinks)
+  const tagLinks = document.querySelectorAll(optArticleTagSelector, optArticleTagsSelector);
+  console.log('tagLinks:', tagLinks)
   /* START LOOP: for each link */
 
   for (let tag of tagLinks) {
@@ -242,35 +242,39 @@ function addClickListenersToTags() {
 
 addClickListenersToTags();
 
-function generateAuthors(){
-  /* find all articles */
+function generateAuthors() {
+  /* find all authors */
 
-  /* START LOOP: for every article: */
+  const authors = document.querySelectorAll(optArticleSelector);
+  console.log('authors:', authors);
 
+  /* START LOOP: for every author: */
+  for (let author of authors) {
+  console.log('author',author);
+  //console.log('authors', authors);
     /* find author wrapper */
-
+    const authorList = document.querySelectorAll(optArticleAuthorSelector);
+    console.log('authorList:', authorList);
     /* make html variable with empty string */
+    //let html = '';
+    /* get authors from data-tags attribute */
+    //const articleAuthors = articles.getAttribute(data-authors);
+    //console.log('articleAuthors', articleAuthors);
+    /* generate HTML of the link */
+    //const linkHTML = '<li><a href="#author-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
+    //console.log('linkHTML:', linkHTML);
+    /* add generated code to html variable */
 
-    /* get tags from data-tags attribute */
-
-    /* split tags into array */
-
-    /* START LOOP: for each tag */
-
-      /* generate HTML of the link */
-
-      /* add generated code to html variable */
-
-    /* END LOOP: for each tag */
 
     /* insert HTML of all the links into the author wrapper */
 
-  /* END LOOP: for every article: */
+    /* END LOOP: for every author: */
+  }
 }
 
 generateAuthors();
 
-function authorClickHandler(event){
+function authorClickHandler(event) {
   /* prevent default action for this event */
 
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -283,7 +287,7 @@ function authorClickHandler(event){
 
   /* START LOOP: for each active author link */
 
-    /* remove class active */
+  /* remove class active */
 
   /* END LOOP: for each active author link */
 
@@ -291,19 +295,19 @@ function authorClickHandler(event){
 
   /* START LOOP: for each found author link */
 
-    /* add class active */
+  /* add class active */
 
   /* END LOOP: for each found author link */
 
   /* execute function "generateTitleLinks" with author selector as argument */
 }
 
-function addClickListenersToAuthors(){
+function addClickListenersToAuthors() {
   /* find all links to authors */
 
   /* START LOOP: for each link */
 
-    /* add authorClickHandler as event listener for that link */
+  /* add authorClickHandler as event listener for that link */
 
   /* END LOOP: for each link */
 }
