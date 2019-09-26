@@ -256,13 +256,14 @@ function generateAuthors() {
     const authorList = document.querySelectorAll(optArticleAuthorSelector);
     console.log('authorList:', authorList);
     /* make html variable with empty string */
-    //let html = '';
-    /* get authors from data-tags attribute */
-    //const articleAuthors = articles.getAttribute(data-authors);
-    //console.log('articleAuthors', articleAuthors);
+    let html = '';
+    console.log(html);
+    /* get authors from data-author attribute */
+    const articleAuthors = author.getAttribute('data-authors');
+    console.log('articleAuthors:', articleAuthors);
     /* generate HTML of the link */
-    //const linkHTML = '<li><a href="#author-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
-    //console.log('linkHTML:', linkHTML);
+    const linkHTML = '<li><a href="#author-' + articleAuthors + '">' + articleAuthors + '</a></li>' + ' ';
+    console.log('linkHTML:', linkHTML);
     /* add generated code to html variable */
 
 
