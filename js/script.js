@@ -246,29 +246,29 @@ function generateAuthors() {
   /* find all authors */
 
   const authors = document.querySelectorAll(optArticleSelector);
-  console.log('authors:', authors);
+  //console.log('authors:', authors);
 
   /* START LOOP: for every author: */
   for (let author of authors) {
-  console.log('author',author);
+  //console.log('author',author);
   //console.log('authors', authors);
     /* find author wrapper */
-    const authorList = document.querySelectorAll(optArticleAuthorSelector);
+    const authorList = author.querySelectorAll(optArticleAuthorSelector);
     console.log('authorList:', authorList);
     /* make html variable with empty string */
     let html = '';
-    console.log(html);
+    //console.log(html);
     /* get authors from data-author attribute */
     const articleAuthors = author.getAttribute('data-authors');
-    console.log('articleAuthors:', articleAuthors);
+    //console.log('articleAuthors:', articleAuthors);
     /* generate HTML of the link */
     const linkHTML = '<li><a href="#author-' + articleAuthors + '">' + articleAuthors + '</a></li>' + ' ';
-    console.log('linkHTML:', linkHTML);
+    //console.log('linkHTML:', linkHTML);
     /* add generated code to html variable */
-
-
+    html = html + linkHTML;
+    console.log(html);
     /* insert HTML of all the links into the author wrapper */
-
+    authorList.innerHTML = html;
     /* END LOOP: for every author: */
   }
 }
