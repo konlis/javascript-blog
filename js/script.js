@@ -48,7 +48,8 @@ const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
   optArticleTagsSelector = '.post-tags .list',
-  optArticleTagSelector = '.post-tags a';
+  optArticleTagSelector = '.post-tags a',
+  optArticleAuthorSelector ='.post-author';
 
 function generateTitleLinks(customSelector = ' ') {
 
@@ -240,3 +241,71 @@ function addClickListenersToTags() {
 }
 
 addClickListenersToTags();
+
+function generateAuthors(){
+  /* find all articles */
+
+  /* START LOOP: for every article: */
+
+    /* find author wrapper */
+
+    /* make html variable with empty string */
+
+    /* get tags from data-tags attribute */
+
+    /* split tags into array */
+
+    /* START LOOP: for each tag */
+
+      /* generate HTML of the link */
+
+      /* add generated code to html variable */
+
+    /* END LOOP: for each tag */
+
+    /* insert HTML of all the links into the author wrapper */
+
+  /* END LOOP: for every article: */
+}
+
+generateAuthors();
+
+function authorClickHandler(event){
+  /* prevent default action for this event */
+
+  /* make new constant named "clickedElement" and give it the value of "this" */
+
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
+
+  /* make a new constant "author" and extract tag from the "href" constant */
+
+  /* find all author links with class active */
+
+  /* START LOOP: for each active author link */
+
+    /* remove class active */
+
+  /* END LOOP: for each active author link */
+
+  /* find all auithor links with "href" attribute equal to the "href" constant */
+
+  /* START LOOP: for each found author link */
+
+    /* add class active */
+
+  /* END LOOP: for each found author link */
+
+  /* execute function "generateTitleLinks" with author selector as argument */
+}
+
+function addClickListenersToAuthors(){
+  /* find all links to authors */
+
+  /* START LOOP: for each link */
+
+    /* add authorClickHandler as event listener for that link */
+
+  /* END LOOP: for each link */
+}
+
+addClickListenersToAuthors();
