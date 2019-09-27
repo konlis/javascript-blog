@@ -59,14 +59,14 @@ function generateTitleLinks(customSelector = ' ') {
     //console.log('html', html);
   }
   titleList.innerHTML = html;
+
+  const links = document.querySelectorAll('.titles a');
+  //console.log('links', links);
+  for (let link of links) {
+    link.addEventListener('click', titleClickHandler);
+  }
 }
 generateTitleLinks();
-
-const links = document.querySelectorAll('.titles a');
-//console.log('links', links);
-for (let link of links) {
-  link.addEventListener('click', titleClickHandler);
-}
 
 function generateTags() {
   /* find all articles */
@@ -201,8 +201,8 @@ function authorClickHandler(event) {
   for (let activeAuthor of activeAuthors) {
     //console.log('activeAuthor:', activeAuthor);
     /* remove class active */
-    activeAuthor.classlist.remove('active');
-    //console.log('activeAuthor:', activeAuthor);
+    activeAuthor.classList.remove('active');
+    console.log('activeAuthor:', activeAuthor);
     /* END LOOP: for each active author link */
   }
   /* find all auithor links with "href" attribute equal to the "href" constant */
@@ -216,6 +216,7 @@ function authorClickHandler(event) {
   }
   /* execute function "generateTitleLinks" with author selector as argument */
   generateTitleLinks('[data-authors="' + author + '"]');
+  //console.log(generateTitleLinks);
 }
 
 function addClickListenersToAuthors() {
