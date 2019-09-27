@@ -193,17 +193,17 @@ function authorClickHandler(event) {
   console.log('clickedElement', href);
   /* make a new constant "author" and extract authors from the "href" constant */
   const author = href.replace('#author-', '');
-  //console.log('author:', author);
+  console.log('author:', author);
   /* find all author links with class active */
   const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
-  //console.log('activeAuthors:', activeAuthors);
+  console.log('activeAuthors:', activeAuthors);
   /* START LOOP: for each active author link */
-    for(let activeAuthor of activeAuthors){
+  //  for(let activeAuthor of activeAuthors){
     //console.log('activeAuthor:', activeAuthor);
   /* remove class active */
-    activeAuthor.classlist.remove('active');
+    //activeAuthor.classlist.remove('active');
   /* END LOOP: for each active author link */
-    }
+    //}
   /* find all auithor links with "href" attribute equal to the "href" constant */
 
   /* START LOOP: for each found author link */
@@ -217,14 +217,14 @@ function authorClickHandler(event) {
 
 function addClickListenersToAuthors() {
   /* find all links to authors */
-  const authorLinks = document.querySelectorAll(optArticleAuthorSelector + optArticleAuthorSelectorLink);
-  console.log('authorLinks:', authorLinks);
+  //const authorLinks = document.querySelectorAll(optArticleAuthorSelector + optArticleAuthorSelectorLink);
+  //console.log('authorLinks:', authorLinks);
   /* START LOOP: for each link */
-  for(let author of authorLinks){
+//  for(let author of authorLinks){
   /* add authorClickHandler as event listener for that link */
-    author.addEventListener('click', authorClickHandler);
+  //  author.addEventListener('click', authorClickHandler);
   /* END LOOP: for each link */
-  }
+  //}
 }
 
 addClickListenersToAuthors();
