@@ -198,12 +198,12 @@ function authorClickHandler(event) {
   const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
   console.log('activeAuthors:', activeAuthors);
   /* START LOOP: for each active author link */
-  //  for(let activeAuthor of activeAuthors){
-    //console.log('activeAuthor:', activeAuthor);
+    for(let activeAuthor of activeAuthors){
+    console.log('activeAuthor:', activeAuthor);
   /* remove class active */
     //activeAuthor.classlist.remove('active');
   /* END LOOP: for each active author link */
-    //}
+    }
   /* find all auithor links with "href" attribute equal to the "href" constant */
 
   /* START LOOP: for each found author link */
