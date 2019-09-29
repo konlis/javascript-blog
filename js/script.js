@@ -70,8 +70,8 @@ function generateTitleLinks(customSelector = ' ') {
 generateTitleLinks();
 
 function generateTags() {
-  /* [NEW] create a new variable allTags with an empty array */
-  let allTags = [];
+  /* [NEW] create a new variable allTags with an empty object */
+  let allTags = {};
 
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
@@ -99,14 +99,17 @@ function generateTags() {
       html = html + linkHTML;
       //console.log('html', html);
       /* [NEW] check if this link is NOT already in allTags */
-      if(allTags.indexOf(linkHTML) == -1){
+      if(!allTags.hasOwnProperty(tag)){
         /* [NEW] add generated code to allTags array */
-        allTags.push(linkHTML);
+        allTags[tag] = 1;
+      } else {
+        allTags[tag]++;
       }
       /* END LOOP: for each tag */
     }
     /* insert HTML of all the links into the tags wrapper */
-    taglist.innerHTML = html;
+    //taglist.innerHTML = html;
+    console.log('allTags:' , allTags);
     /* END LOOP: for every article: */
   }
   /* [NEW] find list of tags in right column */
