@@ -70,15 +70,17 @@ function generateTitleLinks(customSelector = ' ') {
   }
 }
 generateTitleLinks();
-
+// [VERY NEW] create a new variable object params with max and min value
 function calculateTagsParams(tags) {
   const params = {
     max: 0,
     min: 999999
   }
+  // [VERY NEW] START LOOP for every tags
   for (let tag in tags) {
     console.log(tag + ' is used ' + tags[tag] + ' times ');
     /* first option - standard if*/
+    // [VERY NEW] set value for params.max as tags[tag] only if the value is higher than current
     if (tags[tag] > params.max) {
       params.max = tags[tag];
       console.log('params.max:', params.max);
@@ -123,7 +125,7 @@ function generateTags() {
     for (let tag of articleTagsArray) {
       //console.log('tag:', tag);
       /* generate HTML of the link */
-      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
+      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ' ;
       //console.log('linkHTML', linkHTML);
       /* add generated code to html variable */
       html = html + linkHTML;
@@ -151,8 +153,13 @@ function generateTags() {
   /* [NEW] START LOOP: for each tag in allTags: */
   for (let tag in allTags) {
     /*[NEW] generate code of a link and add it to allTagsHTML */
-    allTagsHTML += '<li><a class="' + (allTags[tag]) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
-    //console.log('allTagsHTML:', allTagsHTML);
+    //allTagsHTML += '<li><a class="' + (allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
+    const tagLinkHTML = '<li><a class>"' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
+    //const tagLinkHTML = '<li><a class>" + calculateTagClass(allTags[tag], tagsParams) + " href="#tag-' + tag + '">' + tag + '</a></li>';
+    allTagsHTML += '<li><a class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'" href="#tag-' + tag + '"><span>' + tag + '</span></a>' + ' (' + allTags[tag] + ') </li>';
+    console.log('tagLinkHTML:', tagLinkHTML);
+    //allTagsHTML += tagLinkHTML;
+    console.log('allTagsHTML:', allTagsHTML);
     /* [NEW] END LOOP: for each tag in allTags: */
   }
 
