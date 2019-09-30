@@ -69,13 +69,27 @@ function generateTitleLinks(customSelector = ' ') {
 }
 generateTitleLinks();
 
-function calculateTagsParams(tags){
+function calculateTagsParams(tags) {
   const params = {
-    max : 0,
+    max: 0,
     min: 999999
   }
-  for(let tag in tags){
+  for (let tag in tags) {
     console.log(tag + ' is used ' + tags[tag] + ' times ');
+    /* first option - standard if*/
+    if (tags[tag] > params.max) {
+      params.max = tags[tag];
+      console.log('params.max:', params.max);
+    }
+    if (tags[tag] < params.min) {
+      params.min = tags[tag];
+      console.log('params.min:', params.min);
+    }
+    //params.max = tags[tag];
+    /* second option - short if */
+    //params.max = tags[tag] > params.max ? tags[tag] : params.max;
+    /* third option - math.max */
+    //params.max = Math.max(tags[tag], params.max);
   }
   return params;
 }
@@ -110,7 +124,7 @@ function generateTags() {
       html = html + linkHTML;
       //console.log('html', html);
       /* [NEW] check if this link is NOT already in allTags */
-      if(!allTags.hasOwnProperty(tag)) {
+      if (!allTags.hasOwnProperty(tag)) {
         /* [NEW] add generated code to allTags array */
         allTags[tag] = 1;
       } else {
