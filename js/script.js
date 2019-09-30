@@ -34,7 +34,9 @@ const optArticleSelector = '.post',
   optArticleTagSelector = '.post-tags a',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
-  optTagsListSelector = '.tags .list';
+  optTagsListSelector = '.tags .list',
+  optCloudClassCount = 5,
+  optCloudClassPrefix = 'tag-size-';
 
 function generateTitleLinks(customSelector = ' ') {
   /* remove contents of titleList */
@@ -94,6 +96,9 @@ function calculateTagsParams(tags) {
   return params;
 }
 
+function calculateTagClass(count, params){
+
+}
 function generateTags() {
   /* [NEW] create a new variable allTags with an empty object */
   let allTags = {};
