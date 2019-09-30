@@ -69,11 +69,12 @@ function generateTitleLinks(customSelector = ' ') {
 }
 generateTitleLinks();
 
-function calculateTagsParams(){
+function calculateTagsParams(tags){
   const params = {
     max : 0,
     min: 999999
   }
+
   return params;
 }
 
@@ -130,14 +131,15 @@ function generateTags() {
   for (let tag in allTags) {
     /*[NEW] generate code of a link and add it to allTagsHTML */
     //allTagsHTML += '<li><a href="#tag-' + tag + '">' + allTags[tag] + '</a></li>';
+    //console.log(allTagsHTML);
     allTagsHTML += '<li><a class="' + (allTags[tag]) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
-    //console.log('allTagsHTML:', allTagsHTML);
+    console.log('allTagsHTML:', allTagsHTML);
     /* [NEW] END LOOP: for each tag in allTags: */
   }
 
   /* [NEW] add html from allTags to tagList */
-  tagList.innerHTML = allTags.join(' ');
-  //console.log('allTags:', allTags);
+  tagList.innerHTML = allTagsHTML;
+  console.log('allTagsHTML:', allTagsHTML);
 }
 generateTags();
 
