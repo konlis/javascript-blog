@@ -119,4 +119,8 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.tag-size-1 {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */

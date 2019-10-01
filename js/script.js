@@ -34,9 +34,9 @@ const optArticleSelector = '.post',
   optArticleTagSelector = '.post-tags a',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
-  optTagsListSelector = '.tags .list',
-  optCloudClassCount = 5,
-  optCloudClassPrefix = 'tag-size-';
+  //optTagsListSelector = '.tags .list',
+  optCloudClassCount = 5;
+  //optCloudClassPrefix = 'tag-size-';
 
 function generateTitleLinks(customSelector = ' ') {
   /* remove contents of titleList */
@@ -141,6 +141,7 @@ function generateTags() {
       html = html + linkHTML;
       //console.log('html', html);
       /* [NEW] check if this link is NOT already in allTags */
+      //eslint-disable-next-line
       if (!allTags.hasOwnProperty(tag)) {
         /* [NEW] add generated code to allTags array */
         allTags[tag] = 1;
@@ -163,12 +164,11 @@ function generateTags() {
   /* [NEW] START LOOP: for each tag in allTags: */
   for (let tag in allTags) {
     /*[NEW] generate code of a link and add it to allTagsHTML */
-    //allTagsHTML += '<li><a class="' + (allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
-    const tagLinkHTML = '<li><a class>"' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a></li>';
-    allTagsHTML += '<li><a class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'" href="#tag-' + tag + '"><span>' + tag + '</span></a>' + ' (' + allTags[tag] + ') </li>';
-    //console.log('tagLinkHTML:', tagLinkHTML);
-    //allTagsHTML += tagLinkHTML;
-  //  console.log('allTagsHTML:', allTagsHTML);
+    const tagLinkHTML = '<li class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') </li>';
+    /* this is only different method */
+    //allTagsHTML += '<li class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') </li>';
+    allTagsHTML += tagLinkHTML;
+   //console.log('allTagsHTML:', allTagsHTML);
     /* [NEW] END LOOP: for each tag in allTags: */
   }
 
