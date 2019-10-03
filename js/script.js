@@ -34,7 +34,7 @@ const optArticleSelector = '.post',
   optArticleTagSelector = '.post-tags a',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
-  //optTagsListSelector = '.tags .list',
+  optTagsListSelector = '.tags a',
   optCloudClassCount = 5;
   //optCloudClassPrefix = 'tag-size-';
 
@@ -164,7 +164,8 @@ function generateTags() {
   /* [NEW] START LOOP: for each tag in allTags: */
   for (let tag in allTags) {
     /*[NEW] generate code of a link and add it to allTagsHTML */
-    const tagLinkHTML = '<li class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + '</li>' + ' ';
+    //const tagLinkHTML = '<li class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + '</li>' + ' ';
+    const tagLinkHTML = '<li><a class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'" href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
     /* this is only different method */
     //allTagsHTML += '<li class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') </li>';
     allTagsHTML += tagLinkHTML;
@@ -216,7 +217,7 @@ function tagClickHandler(event) {
 
 function addClickListenersToTags() {
   /* find all links to tags */
-  const tagLinks = document.querySelectorAll(optArticleTagSelector, optArticleTagsSelector);
+  const tagLinks = document.querySelectorAll(optArticleTagSelector, optArticleTagsSelector + ',' + optTagsListSelector);
   //console.log('tagLinks:', tagLinks)
   /* START LOOP: for each link */
   for (let tag of tagLinks) {
