@@ -150,11 +150,8 @@ body {
 
 /*Tags*/
 
-.tags {
+.tags li {
   display: inline-block;
-    //overflow: hidden;
-  white-space: pre-wrap;
-  max-width: 100%;
 }
 
 .tag-size-1 {
