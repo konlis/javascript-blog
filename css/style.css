@@ -121,6 +121,18 @@ body {
 }
 
 .tag-size-1 {
-  color: red;
+  font-size: 130%;
+}
+
+.tag-size-2 {
+  font-size: 160%;
+}
+
+.tag-size-3 {
+  font-size: 190%;
+}
+
+.tag-size-5 {
+  font-size: 210%;
 }
 /*# sourceMappingURL=style.css.map */

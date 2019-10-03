@@ -9,6 +9,10 @@ $font-color: #00ffd1;
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
 $font-text: 'Source Sans Pro', sans-serif;
+$tag-font-size1: 130%;
+$tag-font-size2: 160%;
+$tag-font-size3: 190%;
+$tag-font-size4: 210%;
 
 /* Global */
 
@@ -138,5 +142,17 @@ body {
 }
 
 .tag-size-1 {
-  color: red;
+  font-size: $tag-font-size1;
+}
+
+.tag-size-2 {
+  font-size: $tag-font-size2;
+}
+
+.tag-size-3 {
+  font-size: $tag-font-size3;
+}
+
+.tag-size-5 {
+  font-size: $tag-font-size4;
 }
