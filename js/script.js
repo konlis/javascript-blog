@@ -37,8 +37,6 @@ const optArticleSelector = '.post',
   optTagsListSelector = '.list.tags a',
   optCloudClassCount = 5;
   //optCloudClassPrefix = 'tag-size-';
-  const tagsListSelector = document.querySelectorAll(optTagsListSelector);
-  console.log(tagsListSelector);
 
 function generateTitleLinks(customSelector = ' ') {
   /* remove contents of titleList */
@@ -159,7 +157,7 @@ function generateTags() {
   /* [NEW] find list of tags in right column */
   const tagList = document.querySelector('.tags');
   const tagsParams = calculateTagsParams(allTags);
-  console.log('tagsParams:', tagsParams);
+  //console.log('tagsParams:', tagsParams);
   /*[NEW] add html from allTags to taglist */
   let allTagsHTML = '';
   //console.log('allTagsHTML:', allTagsHTML);
@@ -171,7 +169,7 @@ function generateTags() {
     /* this is only different method */
     //allTagsHTML += '<li class ="tag-size-' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + ' (' + allTags[tag] + ') </li>';
     allTagsHTML += tagLinkHTML;
-   //console.log('allTagsHTML:', allTagsHTML);
+   //console.log('tagLinkHTML:', tagLink);
     /* [NEW] END LOOP: for each tag in allTags: */
   }
 
@@ -182,7 +180,7 @@ function generateTags() {
 generateTags();
 
 function tagClickHandler(event) {
-  console.log('cokolwiek');
+  //console.log('cokolwiek');
   /* prevent default action for this event */
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -190,8 +188,8 @@ function tagClickHandler(event) {
   //console.log('this', this);
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
-  console.log('clickedElement:', clickedElement);
-  console.log('href:', href);
+  //console.log('clickedElement:', clickedElement);
+  //console.log('href:', href);
   /* make a new constant "tag" and extract tag from the "href" constant */
   const tag = href.replace('#tag-', '');
   //console.log('tag:', tag);
