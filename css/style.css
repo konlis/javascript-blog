@@ -120,19 +120,35 @@ body {
   margin: 0 10px 0 0;
 }
 
+/*Tags*/
+.tags {
+  display: inline-block;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+
 .tag-size-1 {
   font-size: 130%;
+  color: #b8732e;
 }
 
 .tag-size-2 {
   font-size: 160%;
+  color: #c37322;
 }
 
 .tag-size-3 {
   font-size: 190%;
+  color: #cf7317;
+}
+
+.tag-size-4 {
+  font-size: 210%;
+  color: #da730b;
 }
 
 .tag-size-5 {
-  font-size: 210%;
+  font-size: 240%;
+  color: #e67300;
 }
 /*# sourceMappingURL=style.css.map */

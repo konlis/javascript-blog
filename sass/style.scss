@@ -13,6 +13,12 @@ $tag-font-size1: 130%;
 $tag-font-size2: 160%;
 $tag-font-size3: 190%;
 $tag-font-size4: 210%;
+$tag-font-size5: 240%;
+$tag-color-size1: hsl(30, 60%, 45%);
+$tag-color-size2: hsl(30, 70%, 45%);
+$tag-color-size3: hsl(30, 80%, 45%);
+$tag-color-size4: hsl(30, 90%, 45%);
+$tag-color-size5: hsl(30, 100%, 45%);
 
 /* Global */
 
@@ -60,6 +66,7 @@ body {
 
 .sidebar {
   flex: 1 0 0;
+//  max-width: 350px;
 }
 
 .posts {
@@ -141,18 +148,36 @@ body {
   }
 }
 
+/*Tags*/
+
+.tags {
+  display: inline-block;
+    //overflow: hidden;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+
 .tag-size-1 {
   font-size: $tag-font-size1;
+  color: $tag-color-size1;
 }
 
 .tag-size-2 {
   font-size: $tag-font-size2;
+  color: $tag-color-size2;
 }
 
 .tag-size-3 {
   font-size: $tag-font-size3;
+  color: $tag-color-size3;
+}
+
+.tag-size-4 {
+  font-size: $tag-font-size4;
+  color: $tag-color-size4;
 }
 
 .tag-size-5 {
-  font-size: $tag-font-size4;
+  font-size: $tag-font-size5;
+  color: $tag-color-size5;
 }
