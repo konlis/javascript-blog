@@ -150,4 +150,10 @@ body {
   font-size: 240%;
   color: #e67300;
 }
+
+/*Authors*/
+.authors li {
+  display: inline-block;
+  line-height: normal;
+}
 /*# sourceMappingURL=style.css.map */

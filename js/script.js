@@ -311,12 +311,12 @@ function generateAuthors() {
   /* [NEW] START LOOP: for each author in allAuthors: */
   for (let articleAuthor in allAuthors) {
     /*[NEW] generate code of a link and add it to allTagsHTML */
-    const authorLinkHTML = '<li><a class ="tag-size-' + calculateAuthorClass(allAuthors[articleAuthor], authorParams) +'" href="#tag-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
+    const authorLinkHTML = '<li><a class ="tag-size-' + calculateAuthorClass(allAuthors[articleAuthor], authorParams) +'" href="#author-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
     console.log('authorLinkHTML:', authorLinkHTML);
     allAuthorsHTML += authorLinkHTML;
-     /* [NEW] END LOOP: for each tag in allTags: */
+     /* [NEW] END LOOP: for each author in allAuthors: */
    }
-   /* [NEW] add html from allTags to tagList */
+   /* [NEW] add html from allAuthors to authorList */
   authorCloudList.innerHTML = allAuthorsHTML;
   console.log('allAuthorsHTML:', allAuthorsHTML);
 }
@@ -361,12 +361,13 @@ function authorClickHandler(event) {
 
 function addClickListenersToAuthors() {
   /* find all links to authors */
-  const linksToAuthors = document.querySelectorAll(optArticleAuthorSelector + optArticleAuthorSelectorLink);
-  //console.log('authorLinks:', authorLinks);
+  const linksToAuthors = document.querySelectorAll(optArticleAuthorSelectorLink + ' , ' + optAuthorsListSelector);
+  console.log('authorLinks:', linksToAuthors);
   /* START LOOP: for each link */
   for (let author of linksToAuthors) {
     /* add authorClickHandler as event listener for that link */
     author.addEventListener('click', authorClickHandler);
+    console.log('author:',author);
     /* END LOOP: for each link */
   }
 }
