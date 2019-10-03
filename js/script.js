@@ -35,7 +35,7 @@ const optArticleSelector = '.post',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
   optTagsListSelector = '.list.tags a',
-  //optAuthorsListSelector = '.list.authors a',
+  optAuthorsListSelector = '.list.authors a',
   optCloudClassCount = 5;
   //optCloudClassPrefix = 'tag-size-';
 
@@ -237,23 +237,23 @@ function calculateAuthorsParams(authors) {
   }
   // [VERY NEW] START LOOP for every tags
   for (let author in authors) {
-    console.log(author + ' is used ' + authors[author] + ' times ');
+    //console.log(author + ' is used ' + authors[author] + ' times ');
     /* first option - standard if*/
     // [VERY NEW] set value for params.max as authors[author] only if the value is higher than current
     if (authors[author] > params.max) {
       params.max = authors[author];
-      console.log('params.max:', params.max);
+      //console.log('params.max:', params.max);
     }
     if (authors[author] < params.min) {
       params.min = authors[author];
-      console.log('params.min:', params.min);
+      //console.log('params.min:', params.min);
     }
   }
   return params;
 }
 
-function calculateTagClass(count, params){
-//console.log('calculateTagClass:', calculateTagClass, 'count:' ,count, 'params:', params);
+function calculateAuthorClass(count, params){
+//console.log('calculateAuthorClass:', calculateAuthorClass, 'count:' ,count, 'params:', params);
   const normalizedCount = count - params.min;
   //console.log('normalizedCount:', normalizedCount);
   const normalizedMax = params.max - params.min;
@@ -266,6 +266,8 @@ function calculateTagClass(count, params){
 }
 
 function generateAuthors() {
+  /* [NEW] create a new variable allAuthors with an empty object */
+  let allAuthors = {};
   /* find all article authors */
   const authorArticles = document.querySelectorAll(optArticleSelector);
   //console.log('authorArticles:', authorArticles);
@@ -288,10 +290,35 @@ function generateAuthors() {
     /* add generated code to html variable */
     html = html + linkHTML;
     //console.log(html);
+    //eslint-disable-next-line
+    if (!allAuthors.hasOwnProperty(articleAuthor)) {
+       /* [NEW] add generated code to allAuthors array */
+       allAuthors[articleAuthor] = 1;
+     } else {
+       allAuthors[articleAuthor]++;
+     }
     /* insert HTML of all the links into the author wrapper */
     authorList.innerHTML = html;
     /* END LOOP: for every author: */
   }
+  /* [NEW] find list of authors in right column */
+  const authorCloudList = document.querySelector('.authors');
+  const authorParams = calculateAuthorsParams(allAuthors);
+  //console.log('authorParams:', authorParams);
+  /*[NEW] add html from allTags to taglist */
+  let allAuthorsHTML = ' ';
+  console.log('allAuthorsHTML:', allAuthorsHTML);
+  /* [NEW] START LOOP: for each author in allAuthors: */
+  for (let articleAuthor in allAuthors) {
+    /*[NEW] generate code of a link and add it to allTagsHTML */
+    const authorLinkHTML = '<li><a class ="tag-size-' + calculateAuthorClass(allAuthors[articleAuthor], authorParams) +'" href="#tag-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
+    console.log('authorLinkHTML:', authorLinkHTML);
+    allAuthorsHTML += authorLinkHTML;
+     /* [NEW] END LOOP: for each tag in allTags: */
+   }
+   /* [NEW] add html from allTags to tagList */
+  authorCloudList.innerHTML = allAuthorsHTML;
+  console.log('allAuthorsHTML:', allAuthorsHTML);
 }
 generateAuthors();
 
