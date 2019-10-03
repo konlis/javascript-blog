@@ -34,9 +34,11 @@ const optArticleSelector = '.post',
   optArticleTagSelector = '.post-tags a',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
-  optTagsListSelector = '.tags a',
+  optTagsListSelector = '.tags.list',
   optCloudClassCount = 5;
   //optCloudClassPrefix = 'tag-size-';
+  const tagsListSelector = document.querySelector(optTagsListSelector);
+  console.log(tagsListSelector);
 
 function generateTitleLinks(customSelector = ' ') {
   /* remove contents of titleList */
@@ -78,16 +80,16 @@ function calculateTagsParams(tags) {
   }
   // [VERY NEW] START LOOP for every tags
   for (let tag in tags) {
-    console.log(tag + ' is used ' + tags[tag] + ' times ');
+    //console.log(tag + ' is used ' + tags[tag] + ' times ');
     /* first option - standard if*/
     // [VERY NEW] set value for params.max as tags[tag] only if the value is higher than current
     if (tags[tag] > params.max) {
       params.max = tags[tag];
-      console.log('params.max:', params.max);
+      //console.log('params.max:', params.max);
     }
     if (tags[tag] < params.min) {
       params.min = tags[tag];
-      console.log('params.min:', params.min);
+      //console.log('params.min:', params.min);
     }
     //params.max = tags[tag];
     /* second option - short if */
@@ -180,7 +182,7 @@ function generateTags() {
 generateTags();
 
 function tagClickHandler(event) {
-  //console.log('Link was clicked!');
+  console.log('cokolwiek');
   /* prevent default action for this event */
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -217,7 +219,7 @@ function tagClickHandler(event) {
 
 function addClickListenersToTags() {
   /* find all links to tags */
-  const tagLinks = document.querySelectorAll(optArticleTagSelector, optArticleTagsSelector + ',' + optTagsListSelector);
+  const tagLinks = document.querySelectorAll(optArticleTagSelector + ',' + optArticleTagsSelector + ',' + optTagsListSelector);
   //console.log('tagLinks:', tagLinks)
   /* START LOOP: for each link */
   for (let tag of tagLinks) {
@@ -278,7 +280,7 @@ function authorClickHandler(event) {
     //console.log('activeAuthor:', activeAuthor);
     /* remove class active */
     activeAuthor.classList.remove('active');
-    console.log('activeAuthor:', activeAuthor);
+    //console.log('activeAuthor:', activeAuthor);
     /* END LOOP: for each active author link */
   }
   /* find all auithor links with "href" attribute equal to the "href" constant */
