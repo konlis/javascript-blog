@@ -34,10 +34,10 @@ const optArticleSelector = '.post',
   optArticleTagSelector = '.post-tags a',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
-  optTagsListSelector = '.tags.list',
+  optTagsListSelector = '.list.tags a',
   optCloudClassCount = 5;
   //optCloudClassPrefix = 'tag-size-';
-  const tagsListSelector = document.querySelector(optTagsListSelector);
+  const tagsListSelector = document.querySelectorAll(optTagsListSelector);
   console.log(tagsListSelector);
 
 function generateTitleLinks(customSelector = ' ') {
@@ -190,7 +190,8 @@ function tagClickHandler(event) {
   //console.log('this', this);
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
-  //console.log('clickedElement:', href);
+  console.log('clickedElement:', clickedElement);
+  console.log('href:', href);
   /* make a new constant "tag" and extract tag from the "href" constant */
   const tag = href.replace('#tag-', '');
   //console.log('tag:', tag);
@@ -219,7 +220,7 @@ function tagClickHandler(event) {
 
 function addClickListenersToTags() {
   /* find all links to tags */
-  const tagLinks = document.querySelectorAll(optArticleTagSelector + ',' + optArticleTagsSelector + ',' + optTagsListSelector);
+  const tagLinks = document.querySelectorAll(optArticleTagSelector + ',' + optTagsListSelector);
   //console.log('tagLinks:', tagLinks)
   /* START LOOP: for each link */
   for (let tag of tagLinks) {
