@@ -35,6 +35,7 @@ const optArticleSelector = '.post',
   optArticleAuthorSelector = '.post-author',
   optArticleAuthorSelectorLink = '.post-author a',
   optTagsListSelector = '.list.tags a',
+  //optAuthorsListSelector = '.list.authors a',
   optCloudClassCount = 5;
   //optCloudClassPrefix = 'tag-size-';
 
@@ -228,6 +229,41 @@ function addClickListenersToTags() {
   }
 }
 addClickListenersToTags();
+
+function calculateAuthorsParams(authors) {
+  const params = {
+    max: 0,
+    min: 999999
+  }
+  // [VERY NEW] START LOOP for every tags
+  for (let author in authors) {
+    console.log(author + ' is used ' + authors[author] + ' times ');
+    /* first option - standard if*/
+    // [VERY NEW] set value for params.max as authors[author] only if the value is higher than current
+    if (authors[author] > params.max) {
+      params.max = authors[author];
+      console.log('params.max:', params.max);
+    }
+    if (authors[author] < params.min) {
+      params.min = authors[author];
+      console.log('params.min:', params.min);
+    }
+  }
+  return params;
+}
+
+function calculateTagClass(count, params){
+//console.log('calculateTagClass:', calculateTagClass, 'count:' ,count, 'params:', params);
+  const normalizedCount = count - params.min;
+  //console.log('normalizedCount:', normalizedCount);
+  const normalizedMax = params.max - params.min;
+  //console.log('normalizedMax:', normalizedMax);
+  const percentage = normalizedCount / normalizedMax;
+  //console.log('percentage:', percentage);
+  const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+  //console.log('classNumber:', classNumber);
+  return classNumber;
+}
 
 function generateAuthors() {
   /* find all article authors */
