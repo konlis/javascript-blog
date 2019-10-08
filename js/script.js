@@ -9,10 +9,12 @@
 
 const*/
 const templates = {
-  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
-  //authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML)
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+  authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+  tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML)
 }
-console.log('templates', templates);
+//console.log('templates', templates);
+
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
@@ -77,9 +79,9 @@ function generateTitleLinks(customSelector = ' ') {
     const linkHTMLData = {
       id: articleId,
       title: articleTitle
-    };
+    }
     const linkHTML = templates.articleLink(linkHTMLData);
-    //console.log('linkHTML', linkHTML);
+    console.log('linkarticleHTML', linkHTML);
     /* insert link into titleList */
     html = html + linkHTML;
     //console.log('html', html);
@@ -158,8 +160,16 @@ function generateTags() {
     for (let tag of articleTagsArray) {
       //console.log('tag:', tag);
       /* generate HTML of the link */
-      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
-      //console.log('linkHTML', linkHTML);
+      //Without handlebars:
+      //const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
+
+      //With handlebars:
+      const linkHTMLData = {
+        id: tag,
+        title: tag
+      }
+      const linkHTML = templates.tagLink(linkHTMLData);
+      console.log('linktagHTML', linkHTML);
       /* add generated code to html variable */
       html = html + linkHTML;
       //console.log('html', html);
@@ -316,7 +326,7 @@ function generateAuthors() {
       title: articleAuthor
     };
     const linkHTML = templates.authorLink(linkHTMLData);
-    //console.log('linkHTML:', linkHTML);
+    console.log('linkauthorHTML:', linkHTML);
     /* add generated code to html variable */
     html = html + linkHTML;
     //console.log(html);
