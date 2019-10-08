@@ -1,5 +1,26 @@
 'use strict';
 
+/*const opts = {
+  cloudClass: {
+    count: 5,
+    prefix: 'tag-size',
+  }
+}
+
+const*/
+
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles',
+  optArticleTagsSelector = '.post-tags .list',
+  optArticleTagSelector = '.post-tags a',
+  optArticleAuthorSelector = '.post-author',
+  optArticleAuthorSelectorLink = '.post-author a',
+  optTagsListSelector = '.list.tags a',
+  optAuthorsListSelector = '.list.authors a',
+  optCloudClassCount = 5;
+  //optCloudClassPrefix = 'tag-size-';
+
 function titleClickHandler(event) {
   //console.log('Link was clicked!');
   /* remove class 'active' from all article links  */
@@ -27,17 +48,6 @@ function titleClickHandler(event) {
   targetArticle.classList.add('active');
   //console.log('targetArticle', targetArticle);
 }
-const optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list',
-  optArticleTagSelector = '.post-tags a',
-  optArticleAuthorSelector = '.post-author',
-  optArticleAuthorSelectorLink = '.post-author a',
-  optTagsListSelector = '.list.tags a',
-  optAuthorsListSelector = '.list.authors a',
-  optCloudClassCount = 5;
-  //optCloudClassPrefix = 'tag-size-';
 
 function generateTitleLinks(customSelector = ' ') {
   /* remove contents of titleList */
