@@ -215,7 +215,12 @@
   </script>
   <script id="template-tagcloud-link" type="text/x-handlebars-template">
     {{#each tags}}
-      <li>{{ tag }}</li>
+      <li><a href="#tag-{{ tag }}" class="tag-size-{{ className }}">{{ tag }} </a></li><li> ({{ count }})</li>
+    {{/each}}
+  </script>
+  <script id="template-authorcloud-link" type="text/x-handlebars-template">
+    {{#each authors}}
+      <li><a href="#author-{{ articleAuthor }}" class="tag-size-{{ className }}">{{ articleAuthor }} </a></li><li> ({{ count }})</li>
     {{/each}}
   </script>
   <script src="js/script.js"></script>
