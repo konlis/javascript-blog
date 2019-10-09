@@ -378,10 +378,11 @@ function generateAuthors() {
     //const authorLinkHTML = '<li><a class ="tag-size-' + calculateAuthorClass(allAuthors[articleAuthor], authorParams) + '" href="#author-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
     //console.log('authorLinkHTML:', authorLinkHTML);
     allAuthorsData.authors.push({
-      tag: articleAuthor,
+      author: articleAuthor,
       count: allAuthors[articleAuthor],
       className: calculateAuthorClass(allAuthors[articleAuthor], authorParams)
     });
+    console.log();
     /* [NEW] END LOOP: for each author in allAuthors: */
   }
   /* [NEW] add html from allAuthors to authorList */
@@ -391,7 +392,7 @@ function generateAuthors() {
 generateAuthors();
 
 function authorClickHandler(event) {
-  //console.log('authorclickhandler', authorClickHandler);
+  console.log('authorclickhandler', authorClickHandler);
   /* prevent default action for this event */
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -401,11 +402,11 @@ function authorClickHandler(event) {
   const href = clickedElement.getAttribute('href');
   //console.log('clickedElement', href);
   /* make a new constant "author" and extract authors from the "href" constant */
-  const author = href.replace('#', '');
+  const author = href.replace('#author-', '');
   console.log('author:', author);
   /* find all author links with class active */
   const activeAuthors = document.querySelectorAll('a.active[href^="#author-"]');
-  //console.log('activeAuthors:', activeAuthors);
+  console.log('activeAuthors:', activeAuthors);
   /* START LOOP: for each active author link */
   for (let activeAuthor of activeAuthors) {
     //console.log('activeAuthor:', activeAuthor);
@@ -416,7 +417,7 @@ function authorClickHandler(event) {
   }
   /* find all auithor links with "href" attribute equal to the "href" constant */
   const authorLinks = document.querySelectorAll('a[href^="#author-' + author + '"]');
-  //console.log('authorLinks:', authorLinks);
+  console.log('authorLinks:', authorLinks);
   /* START LOOP: for each found author link */
   for (let authorLink of authorLinks) {
     /* add class active */
