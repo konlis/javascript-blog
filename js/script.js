@@ -229,7 +229,7 @@ function generateTags() {
 
   /* [NEW] add html from allTags to tagList */
   tagList.innerHTML = templates.tagCloudLink(allTagsData);
-  console.log('allTagsHTML:', allTagsData);
+  //console.log('allTagsHTML:', allTagsData);
 }
 generateTags();
 
@@ -239,10 +239,10 @@ function tagClickHandler(event) {
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
-  //console.log('this', this);
+  console.log('this', this);
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
-  //console.log('clickedElement:', clickedElement);
+  console.log('clickedElement:', clickedElement);
   //console.log('href:', href);
   /* make a new constant "tag" and extract tag from the "href" constant */
   const tag = href.replace('#tag-', '');
@@ -382,12 +382,11 @@ function generateAuthors() {
       count: allAuthors[articleAuthor],
       className: calculateAuthorClass(allAuthors[articleAuthor], authorParams)
     });
-    console.log();
     /* [NEW] END LOOP: for each author in allAuthors: */
   }
   /* [NEW] add html from allAuthors to authorList */
   authorCloudList.innerHTML = templates.authorCloudLink(allAuthorsData);
-  console.log('allAuthorsHTML:', allAuthorsData);
+  //console.log('allAuthorsHTML:', allAuthorsData);
 }
 generateAuthors();
 
@@ -397,10 +396,10 @@ function authorClickHandler(event) {
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
-  //console.log('this:', this);
+  console.log('this:', this);
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
-  //console.log('clickedElement', href);
+  console.log('clickedElement', href);
   /* make a new constant "author" and extract authors from the "href" constant */
   const author = href.replace('#author-', '');
   console.log('author:', author);
